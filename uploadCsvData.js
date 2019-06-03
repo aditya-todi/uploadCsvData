@@ -26,7 +26,10 @@ let medicine = new Schema({
     brandName: {
         type: Schema.Types.String,
         required: true
-    }
+    },
+    regDate: {
+        type: Schema.Types.Date,
+        required: true
 })
 
 let Medicine = mongoose.model('Medicine', medicine)
@@ -59,7 +62,8 @@ readCsvFile(FILE_PATH)
                     hsnCode: medArray[0],
                     name: medArray[1],
                     mrp: parseFloat(medArray[2]),
-                    brandName: medArray[3]
+                    brandName: medArray[3],
+                    regDate: new Date(medArray[4])
                 })
         })
     })
